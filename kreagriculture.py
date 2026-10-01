@@ -27,5 +27,13 @@ class PlantVeritas(BioelectricVeritas):
         score = ( (mean_ph < 5.0) * 0.6 + (grad.mean() / 1e6 > 0.5) * 0.4 )
         return float(np.clip(score, 0, 1))
 
+    def detect_root_stress(self):
+        # Root stress: high spatial gradient and hyperpolarized Vmem indicate restricted hydraulic coupling
+        mean_v = np.mean(self.vmem, axis=1)[-1]
+        grad = self.compute_spatial_gradient(self.cell_x, self.cell_y)
+        grad_value = float(np.nanmean(grad[-1]))
+        score = ( (grad_value > 0.8) * 0.5 + (mean_v < -90) * 0.5 )
+        return float(np.clip(score, 0, 1))
+
 if __name__ == "__main__":
-    print("kreagriculture module ready (expanded with drought & nutrients).")
+    print("kreagriculture module ready (expanded with drought, nutrients, and root stress).")
