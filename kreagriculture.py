@@ -1,5 +1,6 @@
 import sys
-sys.path.append(r'C:\Users\joels\Projects\kira-agriculture\shared')
+import os
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'shared'))
 from veritas_bioelectric_adapter import BioelectricVeritas
 import numpy as np
 
