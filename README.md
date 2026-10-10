@@ -42,4 +42,4 @@ each score. It needs the KIRA `shared/` modules (`veritas_bioelectric_adapter`,
 
 - [krechill](https://github.com/OMWERERE/krechill), sister KIRA module
 
-Built by Mwesigye Eugene (Ujo), Kampala.
+Built by Mwesigye Eugine, Kampala.
